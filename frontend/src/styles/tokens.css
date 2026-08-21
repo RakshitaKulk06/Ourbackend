@@ -1,0 +1,72 @@
+/*
+  Design direction: a live QR check-in is, functionally, an airport gate /
+  security checkpoint. The UI leans into that — a "boarding pass" QR panel
+  with a sweeping countdown ring, and a participants table styled like a
+  gate manifest. Two functional accents (not one decorative one): signal
+  green for "checked in", amber for "closing soon" on the countdown ring.
+*/
+
+:root {
+  /* --- Color --- */
+  --bg: #12151c;
+  --surface: #1b1f29;
+  --surface-raised: #21273354;
+  --hairline: #2a2f3b;
+  --hairline-strong: #363c4a;
+
+  --text-primary: #edeff3;
+  --text-secondary: #8b92a3;
+  --text-tertiary: #5c6272;
+
+  --accent-live: #35c46d;
+  --accent-live-dim: #35c46d26;
+  --accent-warn: #f5a623;
+  --accent-warn-dim: #f5a62326;
+  --accent-danger: #e5484d;
+  --accent-danger-dim: #e5484d22;
+
+  /* --- Type --- */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* --- Layout --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 0 var(--hairline), 0 8px 24px -12px #00000080;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-live);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
